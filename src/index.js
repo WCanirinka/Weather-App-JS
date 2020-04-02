@@ -1,16 +1,21 @@
+/* eslint-disable max-len */
+/* eslint-disable no-useless-concat */
+/* eslint-disable no-use-before-define */
+/* eslint-disable radix */
+/* eslint-disable no-undef */
 const appId = '70485a8e13b31fcaee6010aadf0328be';
 const units = 'metric';
 let searchMethod;
 
 const getSearchMethod = searchTerm => {
-  if (searchTerm.length === 5 && Number.parseInt(searchTerm) + '' === searchTerm) {
+  if (searchTerm.length === 5 && `${Number.parseInt(searchTerm)}` === searchTerm) {
     searchMethod = 'zip';
   } else searchMethod = 'q';
 };
 
 const searchWeather = searchTerm => {
   getSearchMethod(searchTerm);
-  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => { return result.json(); }).then(result => { init(result); });
+  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => result.json()).then(result => { init(result); });
 };
 
 const init = (resultFromServer) => {
@@ -41,19 +46,17 @@ const init = (resultFromServer) => {
       break;
   }
 
-const celsiusToFahrenheit = temperature => {
-  return (temperature * 9) / 5 + 32;
-};
+  const celsiusToFahrenheit = temperature => (temperature * 9) / 5 + 32;
 
-const setPositionForWeatherInfo = () => {
-  const weatherContainer = document.getElementById('weatherContainer');
-  const weatherContainerHeight = weatherContainer.clientHeight;
-  const weatherContainerWidth = weatherContainer.clientWidth;
+  const setPositionForWeatherInfo = () => {
+    const weatherContainer = document.getElementById('weatherContainer');
+    const weatherContainerHeight = weatherContainer.clientHeight;
+    const weatherContainerWidth = weatherContainer.clientWidth;
 
-  weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
-  weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.3}px)`;
-  weatherContainer.style.visibility = 'visible';
-};
+    weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
+    weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.3}px)`;
+    weatherContainer.style.visibility = 'visible';
+  };
 
   const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
   const temperatureElement = document.getElementById('temperature');
@@ -62,26 +65,26 @@ const setPositionForWeatherInfo = () => {
   const cityHeader = document.getElementById('cityHeader');
   const weatherIcon = document.getElementById('documentIconImg');
 
-  weatherIcon.src = 'http://openweathermap.org/img/wn/' + resultFromServer.weather[0].icon + '.png';
+  weatherIcon.src = `http://openweathermap.org/img/wn/${resultFromServer.weather[0].icon}.png`;
 
   const resultDescription = resultFromServer.weather[0].description;
   weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
 
-  temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + ' C';
+  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp)}&#176` + ' C';
   temperatureElement.addEventListener('click', () => {
     if (
-      temperature.innerHTML === Math.floor(resultFromServer.main.temp) + '°' + ' C'
+      temperatureElement.innerHTML === `${Math.floor(resultFromServer.main.temp)}°` + ' C'
     ) {
-      const fahrenheit = celsiusToFahrenheit(resultFromServer.main.temp);
+      let fahrenheit = celsiusToFahrenheit(resultFromServer.main.temp);
       fahrenheit = Math.floor(fahrenheit);
       temperatureElement.innerHTML = `${fahrenheit}&#176 F`;
     } else {
-      temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + ' C';
+      temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp)}&#176` + ' C';
     }
   });
-  windSpeedElement.innerHTML = 'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
+  windSpeedElement.innerHTML = `Winds at ${Math.floor(resultFromServer.wind.speed)} m/s`;
   cityHeader.innerHTML = resultFromServer.name;
-  humidityElement.innerHTML = 'Humidity levels at ' + resultFromServer.main.humidity + '%';
+  humidityElement.innerHTML = `Humidity levels at ${resultFromServer.main.humidity}%`;
 
   setPositionForWeatherInfo();
 };
