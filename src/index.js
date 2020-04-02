@@ -10,7 +10,8 @@ const getSearchMethod = searchTerm => {
 
 const searchWeather = searchTerm => {
   getSearchMethod(searchTerm);
-  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => { return result.json(); }).then(result => { init(result); });};
+  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => { return result.json(); }).then(result => { init(result); });
+};
 
 const init = (resultFromServer) => {
   switch (resultFromServer.weather[0].main) {
@@ -69,8 +70,7 @@ const setPositionForWeatherInfo = () => {
   temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + ' C';
   temperatureElement.addEventListener('click', () => {
     if (
-      temperature.innerHTML ===
-      Math.floor(resultFromServer.main.temp) + '°' + ' C'
+      temperature.innerHTML === Math.floor(resultFromServer.main.temp) + '°' + ' C'
     ) {
       const fahrenheit = celsiusToFahrenheit(resultFromServer.main.temp);
       fahrenheit = Math.floor(fahrenheit);
