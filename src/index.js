@@ -5,22 +5,21 @@ let searchMethod;
 const getSearchMethod = searchTerm => {
   if (
     searchTerm.length === 5 &&
-    Number.parseInt(searchTerm) + "" === searchTerm
-  )
-    searchMethod = "zip";
-  else searchMethod = "q";
+    Number.parseInt(searchTerm) + '' === searchTerm
+  ) {
+    searchMethod = 'zip';
+    }
+  else searchMethod = 'q';
 };
 
 const searchWeather = searchTerm => {
   getSearchMethod(searchTerm);
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
-  )
-    .then(result => {
+  ).then(result => {
       return result.json();
-    })
-    .then(result => {
-      init(result);
+    }).then(result => {
+        init(result);
     });
 };
 
@@ -43,8 +42,7 @@ const init = resultFromServer => {
       break;
 
     case 'Thunderstorm':
-      document.body.style.backgroundImage =
-        'url("./../dist/images/storm.jpeg")';
+      document.body.style.backgroundImage = 'url("./../dist/images/storm.jpeg")';
       break;
 
     case 'Snow':
@@ -55,26 +53,20 @@ const init = resultFromServer => {
       break;
   }
 
-  let weatherDescriptionHeader = document.getElementById(
-    'weatherDescriptionHeader'
-  );
-  let temperatureElement = document.getElementById('temperature');
-  let humidityElement = document.getElementById('humidity');
-  let windSpeedElement = document.getElementById('windSpeed');
-  let cityHeader = document.getElementById('cityHeader');
-  let weatherIcon = document.getElementById('documentIconImg');
+  const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
+  const temperatureElement = document.getElementById('temperature');
+  const humidityElement = document.getElementById('humidity');
+  const windSpeedElement = document.getElementById('windSpeed');
+  const cityHeader = document.getElementById('cityHeader');
+  const weatherIcon = document.getElementById('documentIconImg');
 
-  weatherIcon.src =
-    'http://openweathermap.org/img/wn/' +
-    resultFromServer.weather[0].icon +
-    '.png';
+  weatherIcon.src = 'http://openweathermap.org/img/wn/' + resultFromServer.weather[0].icon + '.png';
 
-  let resultDescription = resultFromServer.weather[0].description;
+  const resultDescription = resultFromServer.weather[0].description;
   weatherDescriptionHeader.innerText =
     resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
 
-  temperatureElement.innerHTML =
-    Math.floor(resultFromServer.main.temp) + '&#176' + " C";
+  temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + " C";
   temperatureElement.addEventListener('click', () => {
     if (
       temperature.innerHTML ===
@@ -84,15 +76,12 @@ const init = resultFromServer => {
       fahrenheit = Math.floor(fahrenheit);
       temperatureElement.innerHTML = `${fahrenheit}&#176 F`;
     } else {
-      temperatureElement.innerHTML =
-        Math.floor(resultFromServer.main.temp) + '&#176' + ' C';
+      temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + ' C';
     }
   });
-  windSpeedElement.innerHTML =
-    'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
+  windSpeedElement.innerHTML = 'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
   cityHeader.innerHTML = resultFromServer.name;
-  humidityElement.innerHTML =
-    'Humidity levels at ' + resultFromServer.main.humidity + '%';
+  humidityElement.innerHTML = 'Humidity levels at ' + resultFromServer.main.humidity + '%';
 
   setPositionForWeatherInfo();
 };
