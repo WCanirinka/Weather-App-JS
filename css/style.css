@@ -1,8 +1,5 @@
 body {
-  background-image: url("./../dist/images/default.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: url("./../dist/images/default.jpeg") no-repeat center center fixed;
   color: white;
   text-shadow: 2px 2px 1px black;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -24,20 +21,21 @@ body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-#searchContainer {
+.searchContainer {
   padding: 15px;
   position: absolute;
   top: 0;
   right: 0;
 }
 
-#searchContainer input {
+.searchContainer input {
   width: 200px;
 }
 
-#searchContainer button {
+.searchContainer button {
   background-color: #019fc6;
   width: 75px;
+  cursor: pointer;
 }
 
 .searchControl {
@@ -65,6 +63,7 @@ body {
 #temperature {
   font-size: 38px;
   vertical-align: 25%;
+  cursor: pointer;
 }
 
 .bottomDetails {

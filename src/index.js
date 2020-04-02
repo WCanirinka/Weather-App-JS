@@ -1,5 +1,5 @@
 let appId = '70485a8e13b31fcaee6010aadf0328be';
-let units = 'imperial';
+let units = 'metric';
 let searchMethod;
 
 const getSearchMethod = (searchTerm) => {
@@ -58,7 +58,16 @@ const init = (resultFromServer) => {
     let resultDescription = resultFromServer.weather[0].description;
     weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
 
-    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176';
+    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' +' C';
+    temperatureElement.addEventListener('click', () => {
+        if(temperature.innerHTML === Math.floor(resultFromServer.main.temp) + '°' +' C'){
+            let fahrenheit =  celsiusToFahrenheit(resultFromServer.main.temp);
+            fahrenheit = Math.floor(fahrenheit);
+            temperatureElement.innerHTML = `${fahrenheit}&#176 F`;
+        } else {
+            temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' +' C';
+        }
+    })
     windSpeedElement.innerHTML = 'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
     cityHeader.innerHTML = resultFromServer.name;
     humidityElement.innerHTML = 'Humidity levels at ' + resultFromServer.main.humidity + '%';
@@ -66,7 +75,7 @@ const init = (resultFromServer) => {
     setPositionForWeatherInfo();
 }
 
-const setPositionForWeatherInfo = () {
+const setPositionForWeatherInfo = () => {
     let weatherContainer = document.getElementById('weatherContainer');
     let weatherContainerHeight = weatherContainer.clientHeight;
     let weatherContainerWidth = weatherContainer.clientWidth;
@@ -74,6 +83,11 @@ const setPositionForWeatherInfo = () {
     weatherContainer.style.left = `calc(50% - ${weatherContainerWidth/2}px)`;
     weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/1.3}px)`;
     weatherContainer.style.visibility = 'visible';
+}
+
+
+const celsiusToFahrenheit = (temperature) => {
+    return (temperature * 9/5) + 32;
 }
 
 document.getElementById('searchBtn').addEventListener('click', () => {

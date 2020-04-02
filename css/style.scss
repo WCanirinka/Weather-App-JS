@@ -1,8 +1,5 @@
 body {
-    background-image: url("./../dist/images/default.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: url("./../dist/images/default.jpeg") no-repeat center center fixed;
     color: white;
     text-shadow: 2px 2px 1px black;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -23,7 +20,7 @@ body {
     }
 }
 
-#searchContainer {
+.searchContainer {
     padding: 15px;
     position: absolute;
     top: 0;
@@ -36,6 +33,7 @@ body {
     button {
         background-color: rgb(1, 159, 198);
         width: 75px;
+        cursor: pointer;
     }
 }
 
@@ -63,6 +61,7 @@ body {
 #temperature {
     font-size: 38px;
     vertical-align: 25%;
+    cursor: pointer;
 }
 
 .bottomDetails {
