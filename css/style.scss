@@ -1,75 +1,75 @@
 body {
-    background: url("./../dist/images/default.jpeg") no-repeat center center fixed;
-    color: white;
-    text-shadow: 2px 2px 1px black;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background: url("./../dist/images/default.jpeg") no-repeat center center fixed;
+  color: white;
+  text-shadow: 2px 2px 1px black;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 #weatherContainer {
-    background-color: rgba(0, 0, 0, 0.25);
-    box-shadow: 1px 1px 5px black;
-    padding: 50px;
-    border-radius: 10px;
-    position: absolute;
-    visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 5px black;
+  padding: 50px;
+  border-radius: 10px;
+  position: absolute;
+  visibility: hidden;
 
-    h1 {
-        margin: 5px;
-        font-size: 42px;
-        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    }
+  h1 {
+    margin: 5px;
+    font-size: 42px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
 }
 
 .searchContainer {
-    padding: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-    input {
-        width: 200px;
-    }
+  input {
+    width: 200px;
+  }
 
-    button {
-        background-color: rgb(1, 159, 198);
-        width: 75px;
-        cursor: pointer;
-    }
+  button {
+    background-color: rgb(1, 159, 198);
+    width: 75px;
+    cursor: pointer;
+  }
 }
 
 .searchControl {
-    box-shadow: 2px 2px 5px black;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
+  box-shadow: 2px 2px 5px black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 #weatherMain {
-    display: block;
-    margin-bottom: 20px;
+  display: block;
+  margin-bottom: 20px;
 
-    div {
-        display: inline-block;
-    }
+  div {
+    display: inline-block;
+  }
 }
 
 #weatherDescriptionHeader {
-    font-size: 20px;
-    vertical-align: 50%;
+  font-size: 20px;
+  vertical-align: 50%;
 }
 
 #temperature {
-    font-size: 38px;
-    vertical-align: 25%;
-    cursor: pointer;
+  font-size: 38px;
+  vertical-align: 25%;
+  cursor: pointer;
 }
 
 .bottomDetails {
-    display: block;
-    block-size: 24px;
-    text-align: right;
+  display: block;
+  block-size: 24px;
+  text-align: right;
 }
 
 hr {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
