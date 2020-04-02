@@ -3,25 +3,23 @@ const units = 'metric';
 let searchMethod;
 
 const getSearchMethod = searchTerm => {
-  if (searchTerm.length === 5 && Number.parseInt(searchTerm) + '' === searchTerm ) {
-      searchMethod = 'zip';
-    } else searchMethod = 'q';
+  if (searchTerm.length === 5 && Number.parseInt(searchTerm) + '' === searchTerm) {
+    searchMethod = 'zip';
+  } else searchMethod = 'q';
 };
 
 const searchWeather = searchTerm => {
   getSearchMethod(searchTerm);
-  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => {return result.json();}).then(result => {init(result);});};
+  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => { return result.json(); }).then(result => { init(result); });};
 
 const init = (resultFromServer) => {
   switch (resultFromServer.weather[0].main) {
     case 'Clear':
-      document.body.style.backgroundImage =
-        'url("./../dist/images/clear.jpeg")';
+      document.body.style.backgroundImage = 'url("./../dist/images/clear.jpeg")';
       break;
 
     case 'Clouds':
-      document.body.style.backgroundImage =
-        'url("./../dist/images/cloudy.jpeg")';
+      document.body.style.backgroundImage = 'url("./../dist/images/cloudy.jpeg")';
       break;
 
     case 'Rain':
@@ -52,10 +50,9 @@ const init = (resultFromServer) => {
   weatherIcon.src = 'http://openweathermap.org/img/wn/' + resultFromServer.weather[0].icon + '.png';
 
   const resultDescription = resultFromServer.weather[0].description;
-  weatherDescriptionHeader.innerText =
-    resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
+  weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
 
-  temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + " C";
+  temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + ' C';
   temperatureElement.addEventListener('click', () => {
     if (
       temperature.innerHTML ===
@@ -82,7 +79,7 @@ const setPositionForWeatherInfo = () => {
 
   weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
   weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.3}px)`;
-  weatherContainer.style.visibility = "visible";
+  weatherContainer.style.visibility = 'visible';
 };
 
 const celsiusToFahrenheit = temperature => {
