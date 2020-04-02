@@ -40,6 +40,20 @@ const init = (resultFromServer) => {
       break;
   }
 
+const celsiusToFahrenheit = temperature => {
+  return (temperature * 9) / 5 + 32;
+};
+
+const setPositionForWeatherInfo = () => {
+  const weatherContainer = document.getElementById('weatherContainer');
+  const weatherContainerHeight = weatherContainer.clientHeight;
+  const weatherContainerWidth = weatherContainer.clientWidth;
+
+  weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
+  weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.3}px)`;
+  weatherContainer.style.visibility = 'visible';
+};
+
   const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
   const temperatureElement = document.getElementById('temperature');
   const humidityElement = document.getElementById('humidity');
@@ -58,7 +72,7 @@ const init = (resultFromServer) => {
       temperature.innerHTML ===
       Math.floor(resultFromServer.main.temp) + '°' + ' C'
     ) {
-      let fahrenheit = celsiusToFahrenheit(resultFromServer.main.temp);
+      const fahrenheit = celsiusToFahrenheit(resultFromServer.main.temp);
       fahrenheit = Math.floor(fahrenheit);
       temperatureElement.innerHTML = `${fahrenheit}&#176 F`;
     } else {
@@ -72,21 +86,7 @@ const init = (resultFromServer) => {
   setPositionForWeatherInfo();
 };
 
-const setPositionForWeatherInfo = () => {
-  let weatherContainer = document.getElementById('weatherContainer');
-  let weatherContainerHeight = weatherContainer.clientHeight;
-  let weatherContainerWidth = weatherContainer.clientWidth;
-
-  weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
-  weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.3}px)`;
-  weatherContainer.style.visibility = 'visible';
-};
-
-const celsiusToFahrenheit = temperature => {
-  return (temperature * 9) / 5 + 32;
-};
-
 document.getElementById('searchBtn').addEventListener('click', () => {
-  let searchTerm = document.getElementById('searchInput').value;
+  const searchTerm = document.getElementById('searchInput').value;
   if (searchTerm) searchWeather(searchTerm);
 });
