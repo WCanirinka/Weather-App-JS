@@ -3,27 +3,16 @@ const units = 'metric';
 let searchMethod;
 
 const getSearchMethod = searchTerm => {
-  if (
-    searchTerm.length === 5 &&
-    Number.parseInt(searchTerm) + '' === searchTerm
-  ) {
-    searchMethod = 'zip';
-    }
-  else searchMethod = 'q';
+  if (searchTerm.length === 5 && Number.parseInt(searchTerm) + '' === searchTerm ) {
+      searchMethod = 'zip';
+    } else searchMethod = 'q';
 };
 
 const searchWeather = searchTerm => {
   getSearchMethod(searchTerm);
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
-  ).then(result => {
-      return result.json();
-    }).then(result => {
-        init(result);
-    });
-};
+  fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => {return result.json();}).then(result => {init(result);});};
 
-const init = resultFromServer => {
+const init = (resultFromServer) => {
   switch (resultFromServer.weather[0].main) {
     case 'Clear':
       document.body.style.backgroundImage =
