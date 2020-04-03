@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-unresolved
 /* eslint-disable radix */
 import '@babel/polyfill';
+
 import init from './dom';
 
 const errorMessage = document.getElementById('errorMessage');
