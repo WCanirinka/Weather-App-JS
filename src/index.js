@@ -1,4 +1,4 @@
-/* eslint-disable-next-line import/no-unresolved */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable radix */
 import '@babel/polyfill';
 
