@@ -7,6 +7,7 @@
     <title>Weather App - JavaScript</title>
   </head>
   <body>
+    <p id="errorMessage"></p>
     <div class="searchContainer">
       <input
         class="searchControl"
@@ -14,7 +15,8 @@
         placeholder="City Name or Zipcode"
         id="searchInput"
       />
-      <button class="searchControl" id="searchBtn">Search</button>
+      <span id="celsiusBtn" class="deg">&#xb0;C</span>
+        <span id="fahrenheitBtn" class="deg">&#xb0;F</span>
     </div>
 
     <div id="weatherContainer">

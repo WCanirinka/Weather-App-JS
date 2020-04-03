@@ -37,6 +37,10 @@ body {
   }
 }
 
+#errorMessage {
+  display: none;
+}
+
 .searchControl {
   box-shadow: 2px 2px 5px black;
   border: none;
@@ -61,6 +65,19 @@ body {
 #temperature {
   font-size: 38px;
   vertical-align: 25%;
+  cursor: pointer;
+}
+
+.deg {
+  color: white;
+  font-size: 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+#celsiusBtn,
+#fahrenheitBtn {
+  margin-left: 10px;
   cursor: pointer;
 }
 
