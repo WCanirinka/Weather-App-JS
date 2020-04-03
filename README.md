@@ -38,7 +38,7 @@ This project tests the understanding of factory functions and modules in Javascr
 Full task description: [Here](https://www.theodinproject.com/courses/javascript/lessons/weather-app).
 
 
-## Screenshots
+<!-- ## Screenshots
 
 ![screenshot](screenshots/Register-Page.png)
 
@@ -46,7 +46,7 @@ Full task description: [Here](https://www.theodinproject.com/courses/javascript/
 ![screenshot](screenshots/Tic-Tac-Toe.png)
 
 
-![screenshot](screenshots/draw.png)
+![screenshot](screenshots/draw.png) -->
 
 
 ### Built With
