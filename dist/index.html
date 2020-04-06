@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Weather App - JavaScript</title>
+  </head>
+  <body>
+    <p id="errorMessage"></p>
+    <div class="searchContainer">
+      <input
+        class="searchControl"
+        type="text"
+        placeholder="City Name or Zipcode"
+        id="searchInput"
+      />
+      <span id="celsiusBtn" class="deg">&#xb0;C</span>
+        <span id="fahrenheitBtn" class="deg">&#xb0;F</span>
+    </div>
+
+    <div id="weatherContainer">
+      <div id="weatherDescription">
+        <h1 id="cityHeader"></h1>
+        <div id="weatherMain">
+          <div id="temperature"></div>
+          <div id="weatherDescriptionHeader"></div>
+          <div><img id="documentIconImg" /></div>
+        </div>
+
+        <hr />
+
+        <div id="windSpeed" class="bottomDetails"></div>
+        <div id="humidity" class="bottomDetails"></div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
