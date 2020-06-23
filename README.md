@@ -38,16 +38,6 @@ This project tests the understanding of factory functions and modules in Javascr
 Full task description: [Here](https://www.theodinproject.com/courses/javascript/lessons/weather-app).
 
 
-<!-- ## Screenshots
-
-![screenshot](screenshots/Register-Page.png)
-
-
-![screenshot](screenshots/Tic-Tac-Toe.png)
-
-
-![screenshot](screenshots/draw.png) -->
-
 
 ### Built With
 
@@ -58,7 +48,7 @@ This project was built with Javascript
 
 - git clone https://github.com/WCanirinka/Weather-App-JS.git
 
-- cd Tic-Tac-Toe-js
+- cd Weather-App-JS
 
 - Open the index.html file in any web browser of your choosing.
 
