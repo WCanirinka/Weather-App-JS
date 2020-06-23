@@ -55,7 +55,7 @@ This project was built with Javascript
 
 ## Live Version
 
-- You can view the app [Here](https://raw.githack.com/WCanirinka/Weather-App-JS/feature/dist/index.html)
+- You can view the app [Here](https://rawcdn.githack.com/WCanirinka/Weather-App-JS/923d425543d793f3c0ff6caa665bcaff55cd702f/dist/index.html)
 
 <!-- ROADMAP -->
 ## Roadmap
